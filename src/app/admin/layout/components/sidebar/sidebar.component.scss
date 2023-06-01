@@ -1,0 +1,41 @@
+@import '../../../../../_variables.scss';
+ul {
+    padding: 0;
+    margin: 0;
+    li{
+        display: flex;
+        align-items: center;
+        margin: 10px;
+        border-radius: 5px;
+        padding: 0px 10px;
+        cursor: pointer;
+        transition: .2s;
+        font-size: 16px;
+        font-weight: 300;
+        gap: 5px;
+        &:not(.active):hover{
+            background: gainsboro;
+        }
+        a{
+            line-height: 16px;
+            color: $main-color;
+            text-decoration: none;
+            width: 100%;
+            padding: 10px 5px;
+            &:active{
+                color: $main-color;
+            }
+        }
+        mat-icon{
+            font-size: 22px;
+            height: 22px;
+        }
+    }
+    .active{
+        background: $main-background;
+        box-shadow: 0px 3px 5px 1.4px rgb(177, 175, 175);
+        *{
+            color: #fff;
+        }
+    }
+}

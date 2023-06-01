@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from './components/components.module';
+import { UilayoutModule } from './uilayout/uilayout.module';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    UilayoutModule
   ]
 })
 export class UiModule { }
