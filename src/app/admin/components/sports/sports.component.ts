@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { HttpClientService } from 'src/app/services/common/http-client.service';
 
@@ -7,13 +8,13 @@ import { HttpClientService } from 'src/app/services/common/http-client.service';
   styleUrls: ['./sports.component.scss']
 })
 export class SportsComponent {
-  constructor(private http:HttpClientService) {
+  constructor(private http: HttpClientService) {
   }
-  ngOnInit() : void{
-    this.http.get({
-      controller:"sports"
-    }).subscribe(data=>{
-      console.log(data);
-    });
+  ngOnInit(): void {
+    // this.http.get({
+    //   controller:"sports"
+    // },1).subscribe(data=>{
+    //   console.log(data);
+    // });
   }
 }

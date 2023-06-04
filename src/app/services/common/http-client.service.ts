@@ -20,11 +20,14 @@ export class HttpClientService {
     let url : string = request.fullEndPoint ? request.fullEndPoint : this.url(request);
     return this.http.post<T>(url, body, {headers:request.headers});
   }
-  put(){
-
+  put<T>(request:Partial<RequestParameters>, body : Partial<T>) : Observable<T>{
+    let url : string = request.fullEndPoint ? request.fullEndPoint : this.url(request);
+    return this.http.put<T>(url, body, {headers:request.headers});
   }
-  delete(){
-
+  delete<T>(request: Partial<RequestParameters>, id : Number): Observable<T>{
+    let url : string = request.fullEndPoint ? request.fullEndPoint : this.url(request) + (id? `/${id}` : '');
+    // let url : string = request.fullEndPoint ? request.fullEndPoint : this.url(request)+'/'+id;
+    return this.http.delete<T>(url,{headers:request.headers})
   }
 }
 export class RequestParameters{
