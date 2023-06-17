@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SportCreate } from 'src/app/contracts/sport/sportcreate';
-import { HttpClientService } from 'src/app/services/common/http-client.service';
+import { HttpClientService, RequestParameters } from 'src/app/services/common/http-client.service';
 import { SportService } from 'src/app/services/common/models/sport.service';
 
 @Component({
@@ -9,15 +9,12 @@ import { SportService } from 'src/app/services/common/models/sport.service';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent {
-  // constructor(private sportService : SportService) {
-  // }
-  constructor(private http : HttpClientService){}
+  constructor(private http : HttpClientService, private service : SportService){
+    this.service.get()
+  }
   create(name : HTMLInputElement){
-    const sportCreate : SportCreate = new SportCreate();
-    sportCreate.name = name.value;
-    this.http.post({
-      controller:"sport"
-    },{name : name.value}).subscribe(r=>alert('oldi'))
-    // this.sportService.create(sportCreate);
+    const createSport : SportCreate = new SportCreate();
+    createSport.name = name.value;
+    this.service.create(createSport);
   }
 }
